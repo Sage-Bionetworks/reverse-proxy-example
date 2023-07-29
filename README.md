@@ -4,7 +4,7 @@ Example of setting up a reverse proxy using Apache server with Python Flask as t
 To run:
 
 ```
-docker build -t apache .
+docker build --build-arg CACHEBUST=$(date +%s) -t apache .
 
 docker run --rm -p 80:80  --name apache -it apache
 
