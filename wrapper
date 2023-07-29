@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Start the first process
+apachectl -D FOREGROUND &
+
+# Start the second process
+flask --app flask_app run &
+
+# Wait for any process to exit
+wait -n
+
+# Exit with status of process that exited first
+exit $?
